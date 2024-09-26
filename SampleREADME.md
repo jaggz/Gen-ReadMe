@@ -1,19 +1,21 @@
-# ercv
+# MY Project
 ## Description
-rvrvr
+This is my NEw project Description
 ## Table of Contents
 - [Installation](#Installation)
-- [Usage Information](#Usage Information)
+- [Usage Information](#UsageInformation)
+- [License](#License)
 ## Installation
-rvrvr
+to install this app use CLI
 ## Usage Information
-vrvrv
+to use this app type "Node index" in the CLI inside the repositry
 ## contribution Guidlines
-vrrvr
+how many people contribute to this project
 ## Test Instructions
-vrvr
+to testify pls see the file sample.md
 ## License
-MIT,Apache 2.0
+- ![GitHub license](https://img.shields.io/badge/license-Apache-blue.svg)
+- ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 ## Questions
-- GIT HUB: rfrfrfrfrfrfr
-- Email: undefined
+- GIT HUB: @jaggz
+- Email: js.dohil@gmail.com

@@ -96,10 +96,13 @@ function init() {
             if(index == "Title"){
                 writeData += `# ${augmentedArry[index]}\n`;
             }else if(index == "table_of_content"){
-                writeData += `## Table of Contents\n- [Installation](#Installation)\n- [Usage Information](#UsageInformation)\n`;
+                writeData += `## Table of Contents\n- [Installation](#Installation)\n- [Usage Information](#UsageInformation)\n- [License](#License)\n`;
         
+            }else if(index == "License" ){
+                writeData += `## ${index}\n- ${augmentedArry[index][0]?"![GitHub license](https://img.shields.io/badge/license-Apache-blue.svg)":""}\n- ${augmentedArry[index][1]?"![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)":""}\n`;       
             }else if(index == "questions" ){
                 writeData += `## Questions\n- GIT HUB: ${augmentedArry.questions[0]}\n- Email: ${augmentedArry.questions[1]}\n`;        
+            
             }else{
                 writeData += `## ${index}\n${augmentedArry[index]}\n`; 
 
@@ -108,7 +111,7 @@ function init() {
         writeToFile('SampleREADME.md',writeData);
 
 
-    })
+    });
    
 
     
