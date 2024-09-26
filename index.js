@@ -17,7 +17,7 @@ const questions = [
                     
 const promptarray = [];
 
-const namekey = ["Title","Description","Installation","Usage_Information","contribution_Guidlines","Test_Instructions","License","Questions"]
+const namekey = ["Title","Description","Installation","Usage Information","contribution Guidlines","Test Instructions","License","Questions"]
 
 let promptObj={  type:"input",
                  message:"your project name",
@@ -71,18 +71,37 @@ function init() {
     
     makepromptarray();
     inquirer.prompt(promptarray).then((res)=>{
-        console.log(res);
-        let writeData ="";
+        
+        const augmentedArry = {};
+        
         for(const index in res){
+            
+            if(index === "github"){
+                augmentedArry.questions = [];
+                augmentedArry.questions.push(res[index]);
+            }else if(index === "Installation"){
+                augmentedArry.table_of_content = '';
+                augmentedArry[index] = res[index];
+            }else if(index === "email"){
+                augmentedArry.questions.push(res[index]);
+
+            }else{
+                augmentedArry[index] = res[index];
+            }
+
+        }
+        let writeData ="";
+        for(const index in augmentedArry){
 
             if(index == "Title"){
-                writeData += `# ${res[index]}\n`;
-            }else if(index == "Installation"){
-                writeData += `## Table of Contents\n- [Installation](#Installation)\n- [Usage_Information](#Usage Information)\n`;
-            }else if(index == "github" ){
-                writeData += `## Questions\n- ${res[index]}\n- ${res["email"]}\n`;        
+                writeData += `# ${augmentedArry[index]}\n`;
+            }else if(index == "table_of_content"){
+                writeData += `## Table of Contents\n- [Installation](#Installation)\n- [Usage Information](#UsageInformation)\n`;
+        
+            }else if(index == "questions" ){
+                writeData += `## Questions\n- GIT HUB: ${augmentedArry.questions[0]}\n- Email: ${augmentedArry.questions[1]}\n`;        
             }else{
-                writeData += `## ${index}\n${res[index]}\n`; 
+                writeData += `## ${index}\n${augmentedArry[index]}\n`; 
 
             }
         }
